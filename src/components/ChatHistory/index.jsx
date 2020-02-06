@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -58,8 +58,16 @@ export const ChatHistory = (props) => {
 	const { currentUser } = props;
 	const messages = useSelector((state) => state.messages);
 
+	const ref = useRef();
+
+	useEffect(() => {
+		if (ref.current) {
+			ref.current.scrollTo(0, ref.current.scrollHeight);
+		}
+	}, [messages]);
+
 	return (
-		<Container>
+		<Container ref={ref}>
 			{messages.map((m) => {
 				const isCurrent = m.user === currentUser;
 				const isAdmin = m.user === 'admin';
