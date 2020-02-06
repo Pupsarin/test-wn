@@ -1,0 +1,10 @@
+{
+	"singleQuote": true,
+	"trailingComma": "es5",
+	"printWidth": 120,
+	"useTabs": true,
+	"tabWidth": 4,
+	"react/jsx-curly-newline": "off",
+	"arrowParens": "always",
+	"jsxSingleQuote": false
+}

@@ -1,0 +1,45 @@
+{
+	"extends": [
+		"airbnb-base",
+		"plugin:react/recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"prettier",
+		"prettier/react"
+	],
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx"],
+				"moduleDirectory": ["node_modules", "src/"]
+			}
+		}
+	},
+	"plugins": ["prettier"],
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"rules": {
+		"prettier/prettier": ["error"],
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"no-tabs": 0,
+		"no-param-reassign": 0,
+		"import/prefer-default-export": 0,
+		"react/prop-types": 0,
+		"max-len": [
+			"error",
+			{
+				"code": 180
+			}
+		],
+		"react/jsx-indent": [2, "tab", { "checkAttributes": true }],
+		"react/jsx-indent-props": [2, "tab"],
+		"no-shadow": "off",
+		"react/jsx-one-expression-per-line": 0,
+		"react/jsx-filename-extension": 1,
+		"no-underscore-dangle": 1,
+		"no-else-return": 1
+	}
+}
