@@ -34,7 +34,7 @@ const Message = styled.div`
 				justify-content: center;
 			`;
 		}
-		return 'align-self: inherit';
+		return 'align-self: flex-start';
 	}};
 `;
 
