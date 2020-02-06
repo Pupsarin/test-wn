@@ -1,4 +1,6 @@
 yarn install && yarn start
+or visit
+https://pupsarin.github.io/test-wn/
 
 Definitions:
 Our goal is to build a small web-based group chat app for at least 2 participants.
