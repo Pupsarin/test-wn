@@ -13,10 +13,10 @@ export const ChatInput = (props) => {
 		setMessage(val);
 	};
 	const handleSubmit = () => {
-		if (message) {
+		if (message && message.replace(/\s/g, '').length) {
 			dispatch(sendMessage({ user, message }));
-			setMessage('');
 		}
+		setMessage('');
 	};
 
 	return (
