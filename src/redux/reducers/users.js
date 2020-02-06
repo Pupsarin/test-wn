@@ -1,8 +1,8 @@
 import { ADD_USER, REMOVE_USER } from '../actionTypes';
 
 const initialState = {
-	users: [1, 2, 3],
-	userCounter: 4,
+	users: [1, 2],
+	userCounter: 3,
 };
 
 export const users = (state = initialState, action) => {
