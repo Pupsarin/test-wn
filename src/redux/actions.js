@@ -4,9 +4,9 @@ export const addUser = () => ({
 	type: ADD_USER,
 });
 
-export const removeUser = (userToRemove) => ({
+export const removeUser = (newUserList) => ({
 	type: REMOVE_USER,
-	payload: { userToRemove },
+	payload: newUserList,
 });
 
 export const sendMessage = (content) => ({
@@ -19,5 +19,6 @@ export const newUserMessage = (newUser) => ({
 	payload: {
 		user: 'admin',
 		message: `User ${newUser} joined the chat`,
+		createdAt: new Date(),
 	},
 });

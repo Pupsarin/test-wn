@@ -14,10 +14,9 @@ export const users = (state = initialState, action) => {
 			};
 		}
 		case REMOVE_USER: {
-			const { userToRemove } = action.payload;
 			return {
 				...state,
-				users: state.users.filter((usr) => usr !== userToRemove),
+				users: [...action.payload],
 			};
 		}
 		default:

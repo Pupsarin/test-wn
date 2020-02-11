@@ -14,7 +14,7 @@ export const ChatInput = (props) => {
 	};
 	const handleSubmit = () => {
 		if (message && message.replace(/\s/g, '').length) {
-			dispatch(sendMessage({ user, message }));
+			dispatch(sendMessage({ user, message, createdAt: new Date() }));
 		}
 		setMessage('');
 	};

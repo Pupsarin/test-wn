@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Icon, IconButton } from 'rsuite';
 import styled from 'styled-components';
 import { removeUser } from '../../redux/actions';
 import { palette } from '../../shared/style';
-import { ChatInput } from '../../containers';
+import { ChatInput } from '../ChatInput';
 import { ChatHistory } from '../ChatHistory';
 
 const Card = styled.div`
@@ -51,9 +51,12 @@ const InputContainer = styled.div`
 export const ChatView = (props) => {
 	const { user, usersCount } = props;
 	const dispatch = useDispatch();
+	const { users } = useSelector((state) => state.users);
+
+	const filteredUsers = (userToRemove, state) => state.filter((usr) => usr !== userToRemove);
 
 	const handleUserRemoval = () => {
-		dispatch(removeUser(user));
+		dispatch(removeUser(filteredUsers(user, users)));
 	};
 
 	return (

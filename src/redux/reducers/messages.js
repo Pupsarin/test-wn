@@ -6,8 +6,7 @@ export const messages = (state = initialState, action) => {
 	switch (action.type) {
 		case NEW_USER_MESSAGE:
 		case SEND_MESSAGE: {
-			const { user, message } = action.payload;
-			return [...state, { user, message, createdAt: new Date() }];
+			return [...state, { ...action.payload }];
 		}
 		default:
 			return state;

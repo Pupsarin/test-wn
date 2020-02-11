@@ -21,14 +21,14 @@ const Message = styled.div`
 	padding: 0.5rem;
 	min-width: 10%;
 	margin-bottom: 0.5rem;
-	${({ isAdmin, isCurrent }) => {
-		if (isCurrent) {
+	${({ right, center }) => {
+		if (right) {
 			return `
 				align-self: flex-end;
 				align-items: flex-end;
 			`;
 		}
-		if (isAdmin) {
+		if (center) {
 			return `
 				align-self: center;
 				justify-content: center;
@@ -71,11 +71,12 @@ export const ChatHistory = (props) => {
 			{messages.map((m) => {
 				const isCurrent = m.user === currentUser;
 				const isAdmin = m.user === 'admin';
+
 				return (
-					<Message key={m.message + m.createdAt.getTime()} isCurrent={isCurrent} isAdmin={isAdmin}>
+					<Message key={m.message + m.createdAt.getTime()} right={isCurrent} center={isAdmin}>
 						{!isAdmin && !isCurrent && <Div>User {m.user}</Div>}
 						{!isAdmin && <Time>{m.createdAt.toLocaleString()}</Time>}
-						<Message.Body isCurrent={isCurrent}>{m.message}</Message.Body>
+						<Message.Body>{m.message}</Message.Body>
 					</Message>
 				);
 			})}
